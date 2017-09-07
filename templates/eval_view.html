@@ -1,0 +1,15 @@
+<table>
+    <tr>
+        <th>Instructor Name</th>
+        <th>Workshop Name</th>
+        <th>Workshop Date</th>
+    </tr>
+    {% for item in query_results %}
+    <tr>
+        <td>{{ item.instructor_name }}</td>
+        <td>{{ item.workshop_name }}</td>
+        <td>{{ item.workshop_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="../">Return</a>
