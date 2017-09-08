@@ -1,16 +1,14 @@
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="/../static/evaluations/css/evalform.css"/>
+    <link rel="stylesheet" type="text/css" href="/../static/evaluations/css/evaluate.css"/>
     <meta charset="utf-8" />
 </head>
 
 <form action="/evaluations/evaluate/" method="post">
-    {% csrf_token %}
-    <div id="container">
-    
+    {% csrf_token %} 
     {{ form.as_p }}
-    </div>
-    <input type="submit" value="Submit" />
+
+    <button type="submit">Submit</button>
 </form>
 
-<a href="../">Return</a>
+<a href="../"><button>Return</button></a>

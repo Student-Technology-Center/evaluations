@@ -1,3 +1,13 @@
+button {
+    background-color: #4C57AF;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 #input-in, #input-wn, #input-wd {
     width: 33%;
     font-size: 16px;
