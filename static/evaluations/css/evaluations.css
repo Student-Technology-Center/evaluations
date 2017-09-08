@@ -1,4 +1,4 @@
-#inputIN, #inputWN, #inputWD {
+#input-in, #input-wn, #input-wd {
     width: 33%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;
@@ -6,22 +6,22 @@
     margin-bottom: 12px;
 }
 
-#myTable {
+#evals {
     border-collapse: collapse;
     width: 100%;
     border: 1px solid #ddd;
     font-size: 18px
 }
 
-#myTable th, #myTable td {
+#evals th, #evals td {
     text-align: left;
     padding: 12px;
 }
 
-#myTable tr {
+#evals tr {
     border-bottom: 1px solid #ddd;
 }
 
-#myTable tr.header, #myTable tr:hover {
+.notFirst:hover {
     background-color: #f1f1f1;
 }

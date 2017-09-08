@@ -1,9 +1,9 @@
 function instructorSearch() {
     // Declare variabels
     var input, filter, table, tr, td, i;
-    input = document.getElementById("inputIN");
+    input = document.getElementById("input-in");
     filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
+    table = document.getElementById("evals");
     tr = table.getElementsByTagName("tr");
 
     // Loop through all table rows, and hide those who don't match the search query
@@ -22,9 +22,9 @@ function instructorSearch() {
 function workshopSearch() {
     // Declare variabels
     var input, filter, table, tr, td, i;
-    input = document.getElementById("inputWN");
+    input = document.getElementById("input-wn");
     filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
+    table = document.getElementById("evals");
     tr = table.getElementsByTagName("tr");
 
     // Loop through all table rows, and hide those who don't match the search query
@@ -43,9 +43,9 @@ function workshopSearch() {
 function dateSearch() {
     // Declare variabels
     var input, filter, table, tr, td, i;
-    input = document.getElementById("inputWD");
+    input = document.getElementById("input-wd");
     filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
+    table = document.getElementById("evals");
     tr = table.getElementsByTagName("tr");
 
     // Loop through all table rows, and hide those who don't match the search query

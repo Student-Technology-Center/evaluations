@@ -10,18 +10,18 @@
 <body>
     <h3>Workshop Evaluations</h3>
 
-    <input type="text" id="inputIN" onKeyup="instructorSearch()" placeholder="Search by instructor name...">
-    <input type="text" id="inputWN" onKeyup="workshopSearch()" placeholder="Search by workshop name...">
-    <input type="text" id="inputWD" onKeyup="dateSearch()" placeholder="Search by workshop date...">
+    <input type="text" id="input-in" onKeyup="instructorSearch()" placeholder="Search by instructor name...">
+    <input type="text" id="input-wn" onKeyup="workshopSearch()" placeholder="Search by workshop name...">
+    <input type="text" id="input-wd" onKeyup="dateSearch()" placeholder="Search by workshop date...">
 
-    <table id="myTable">
+    <table id="evals">
         <tr>
             <th>Instructor Name</th>
             <th>Workshop Name</th>
             <th>Workshop Date</th>
         </tr>
         {% for item in query_results %}
-        <tr>
+        <tr class="notFirst">
             <td>{{ item.instructor_name }}</td>
             <td>{{ item.workshop_name }}</td>
             <td>{{ item.workshop_date }}</td>
