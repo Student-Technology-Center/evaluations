@@ -9,4 +9,4 @@ from evaluations.models import Evaluation
 class EvaluationForm(forms.ModelForm):
     class Meta:
         model = Evaluation
-        fields = ['instructor_name', 'workshop_name', 'workshop_date']
+        fields = '__all__'
