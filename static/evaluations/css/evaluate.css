@@ -15,6 +15,7 @@ select {
 }
 
 button {
+    width: 15%;
     background-color: #4C57AF;
     border: none;
     color: white;
