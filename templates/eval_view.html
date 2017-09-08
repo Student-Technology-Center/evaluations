@@ -3,7 +3,6 @@
     <link rel="stylesheet" type="text/css" href="/../static/evaluations/css/evaluations.css"/>
     <script src="/../static/evaluations/js/tablesearch.js"></script>
     <meta charset="utf-8" />
-    <title>Evaluations</title>
 </head>
 
 
@@ -19,12 +18,14 @@
             <th>Instructor Name</th>
             <th>Workshop Name</th>
             <th>Workshop Date</th>
+            <th>Instructor Knowledge</th>
         </tr>
         {% for item in query_results %}
         <tr class="notFirst">
             <td>{{ item.instructor_name }}</td>
             <td>{{ item.workshop_name }}</td>
             <td>{{ item.workshop_date }}</td>
+            <td>{{ item.instructor_knowledge }}</td>
         </tr>
         {% endfor %}
     </table>
