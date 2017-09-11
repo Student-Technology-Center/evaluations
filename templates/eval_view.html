@@ -18,14 +18,30 @@
             <th>Instructor Name</th>
             <th>Workshop Name</th>
             <th>Workshop Date</th>
+            <th>Information Clarity</th>
+            <th>Material Usefulness</th>
             <th>Instructor Knowledge</th>
+            <th>Time taken to answer questions</th>
+            <th>Was the instructor on time?</th>
+            <th>Was this personal intrest or class/project related?</th>
+            <th>What part of the workshop was the most difficult for you?</th>
+            <th>What was your favorite part of the workshop?</th>
+            <th>What other workshops would you like to see offered?</th>
         </tr>
         {% for item in query_results %}
         <tr class="notFirst">
             <td>{{ item.instructor_name }}</td>
             <td>{{ item.workshop_name }}</td>
             <td>{{ item.workshop_date }}</td>
+            <td>{{ item.clarity }}</td>
+            <td>{{ item.usefullness }}</td>
             <td>{{ item.instructor_knowledge }}</td>
+            <td>{{ item.instructor_time }}</td>
+            <td>{{ item.ontime }}</td>
+            <td>{{ item.intrest }}</td>
+            <td>{{ item.difficulty }}</td>
+            <td>{{ item.favorite }}</td>
+            <td>{{ item.offered }}</td>
         </tr>
         {% endfor %}
     </table>
