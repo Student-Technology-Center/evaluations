@@ -1,9 +1,30 @@
-button {
-    background-color: #4C57AF;
-    border: none;
+body {
+    font-family: sans-serif;
+    background-color: #1F3140;
     color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
+    font-size: 25px;
+}
+
+h1 {
+    text-align: center
+}
+
+button {
+    font-size: 20px;
+
+    width: 100%;
+    margin-top: 5px;
+    padding: 12px;
+
+    border: none;
+    background: #808080;
+    color: #fff;
+    
     cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #bdd0ef;
+    color: black;
 }

@@ -14,7 +14,7 @@
 }
 
 #evals th, #evals td {
-    text-align: left;
+    text-align: center;
     padding: 12px;
 }
 
@@ -23,16 +23,40 @@
 }
 
 .notFirst:hover {
-    background-color: #f1f1f1;
+    background-color: rgba(241, 241, 241, 0.07);
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #1F3140;
+    color: white;
+    
+    align-content: center;
+
+    font-size: 25px;
 }
 
 button {
-    width: 15%;
-    background-color: #4C57AF;
+    font-size: 20px;
+
+
+    width: 100%;
+    margin-top: 5px;
+    padding: 12px;
+
     border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
+    background: #808080;
+    color: #fff;
+
     cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #bdd0ef;
+    color: black;
+}
+
+table {
+    background-color: #3F637F;
 }
