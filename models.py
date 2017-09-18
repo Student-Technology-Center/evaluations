@@ -20,7 +20,7 @@ class Evaluation(models.Model):
     """
     instructor_name = models.CharField("Instructor", max_length = 64)
     workshop_name = models.CharField("Name of Workshop", max_length = 64)
-    workshop_date = models.DateField("Date")
+    workshop_date = models.DateField("Date of workshop")
 
     clarity = models.IntegerField("Was the information presented clearly?", choices=RATEING_CHOICES, default='3')
     usefullness = models.IntegerField("Were the workshop materials useful?", choices=RATEING_CHOICES, default='3')

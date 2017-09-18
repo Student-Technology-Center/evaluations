@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/../static/evaluations/js/picker.js"></script>
+    <script src="/../static/evaluations/js/picker.date.js"></script>
+    
     <link rel="stylesheet" type="text/css" href="/../static/evaluations/css/evaluate.css"/>
+    <link rel="stylesheet" type="text/css" href="/../static/evaluations/css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="/../static/evaluations/css/default.date.css"/>
+
     <meta charset="utf-8" />
+
+    <script>
+        // target the date field for the datepicker widget
+        $(function() {
+            // Define our dateInput (calandar)
+            var dateInput = $('#id_workshop_date').pickadate({
+                // Formatting for how we present the data and how the backend receives the data
+                format: 'dddd, mmmm dd, yyyy',
+                formatSubmit: 'yyyy/mm/dd',
+                formatSubmit: 'yyyy-mm-dd',
+                hiddenSuffix: ''
+            })
+        });
+    </script>
 </head>
 
 <form action="/evaluations/evaluate/" method="post">
     {% csrf_token %} 
     {{ form.as_p }}
 
-    <button type="submit">Submit</button>
-</form>
-
-<a href="../"><button>Return</button></a>
+    <div>
+        <input type="submit" name="submit" value="Submit"/>
+    </div>
+    
+</forms
