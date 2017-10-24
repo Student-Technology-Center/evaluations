@@ -57,7 +57,7 @@ $(document).ready(function() {
                     <td>{{ item.ontime }}</td>     
                     
                 </tr>
-                <tr class="toggle">
+                <tr style="display: none;">
                     <td colspan="8">
                         <ul style="text-align: left; list-style: none;">
                             <li>Intrest: {{ item.intrest }}</li>
@@ -67,7 +67,6 @@ $(document).ready(function() {
                         </ul>
                     </td>
                     <td>
-
                         {% if request.user.is_superuser  %}
                             <form onclick="clicked(event)" action="{% url 'delete-eval' pk=item.pk %}" method="POST">
                                 {% csrf_token %}
