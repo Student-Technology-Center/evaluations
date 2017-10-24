@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
+from django.views.generic.edit import DeleteView
 from .forms import *
 from .models import *
 
@@ -41,6 +42,10 @@ def view(request):
     View function for viewing workshop evaluations
     '''
 
-    query_results = Evaluation.objects.all()
+    query_results = Evaluation.objects.all().order_by('-workshop_date')
 
     return render(request, 'eval_view.html', {'query_results': query_results})
+
+class EvalDeleteView(DeleteView):
+    model = Evaluation 
+    success_url = reverse_lazy('evaluate-view')
