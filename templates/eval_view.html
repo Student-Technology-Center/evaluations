@@ -2,8 +2,25 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/../static/evaluations/css/view.css"/>
     <script src="/../static/evaluations/js/tablesearch.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <meta charset="utf-8" />
 </head>
+
+<script>
+$(document).ready(function() {
+    $(".expander").click(function(){
+        var row = $(this).closest("tr").next();
+        row.toggle()
+    });
+});
+</script>
+
+<script type="text/javascript">
+    function clicked(e) {
+        if(!confirm('Are you sure?'))
+            e.preventDefault();
+    }
+</script>
 
 
 <body>
@@ -12,36 +29,55 @@
     <input type="text" id="input-wd" onKeyup="dateSearch()" placeholder="Search by workshop date...">
 
     <table id="evals">
-        <tr>
-            <th>Instructor Name</th>
-            <th>Workshop Name</th>
-            <th>Workshop Date</th>
-            <th>Information Clarity</th>
-            <th>Material Usefulness</th>
-            <th>Instructor Knowledge</th>
-            <th>Time taken to answer questions</th>
-            <th>Was the instructor on time?</th>
-            <th>Was this personal intrest or class/project related?</th>
-            <th>What part of the workshop was the most difficult for you?</th>
-            <th>What was your favorite part of the workshop?</th>
-            <th>What other workshops would you like to see offered?</th>
-        </tr>
-        {% for item in query_results %}
-        <tr class="notFirst">
-            <td>{{ item.instructor_name }}</td>
-            <td>{{ item.workshop_name }}</td>
-            <td>{{ item.workshop_date }}</td>
-            <td>{{ item.clarity }}</td>
-            <td>{{ item.usefullness }}</td>
-            <td>{{ item.instructor_knowledge }}</td>
-            <td>{{ item.instructor_time }}</td>
-            <td>{{ item.ontime }}</td>
-            <td>{{ item.intrest }}</td>
-            <td>{{ item.difficulty }}</td>
-            <td>{{ item.favorite }}</td>
-            <td>{{ item.offered }}</td>
-        </tr>
-        {% endfor %}
+        <thead>
+            <tr>
+                <th></th>
+                <th>Instructor Name</th>
+                <th>Workshop Name</th>
+                <th>Workshop Date</th>
+                <th>Information Clarity</th>
+                <th>Material Usefulness</th>
+                <th>Instructor Knowledge</th>
+                <th>Time taken to answer questions</th>
+                <th>Was the instructor on time?</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in query_results %}
+                <tr class="notFirst">      
+
+                    <td><button class="expander">Show</button></td>
+                    <td>{{ item.instructor_name }}</td>
+                    <td>{{ item.workshop_name }}</td>
+                    <td>{{ item.workshop_date }}</td>
+                    <td>{{ item.clarity }}</td>
+                    <td>{{ item.usefullness }}</td>
+                    <td>{{ item.instructor_knowledge }}</td>
+                    <td>{{ item.instructor_time }}</td>
+                    <td>{{ item.ontime }}</td>     
+                    
+                </tr>
+                <tr class="toggle">
+                    <td colspan="8">
+                        <ul style="text-align: left; list-style: none;">
+                            <li>Intrest: {{ item.intrest }}</li>
+                            <li>Difficulty: {{ item.difficulty }}</li>
+                            <li>Favorite: {{ item.favorite }}</li>
+                            <li>Offered: {{ item.offered }}</li>
+                        </ul>
+                    </td>
+                    <td>
+
+                        {% if request.user.is_superuser  %}
+                            <form onclick="clicked(event)" action="{% url 'delete-eval' pk=item.pk %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" value="Delete">Delete</button>
+                            </form>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
     </table>
 
     <a href="../"><button>Return</button></a>
