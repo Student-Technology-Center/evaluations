@@ -23,7 +23,7 @@ def evaluate_workshop(request, workshop_name, instructor_name):
     # Default form values
     defaults = {
         'instructor_name': instructor_name.replace("_", " "),
-        'workshop_name': workshop_name,
+        'workshop_name': workshop_name.replace("_", " "),
         'workshop_date': datetime.datetime.now(),
     }
 
