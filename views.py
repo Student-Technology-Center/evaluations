@@ -2,12 +2,16 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import DeleteView
+from django.contrib.auth.decorators import login_required
+from login.decorators import user_is_email_confirmed
 from .forms import *
 from .models import *
 import datetime
 
 # Create your views here.
 
+@login_required
+@user_is_email_confirmed
 def index(request):
     '''
     Currently returns underconstruction page
@@ -51,6 +55,8 @@ def evaluate_workshop_blank(request):
     '''
     return evaluate_workshop(request, "", "")
 
+@login_required
+@user_is_email_confirmed
 def view(request):
     '''
     View function for viewing workshop evaluations
@@ -59,6 +65,7 @@ def view(request):
     query_results = Evaluation.objects.all().order_by('-workshop_date')
 
     return render(request, 'eval_view.html', {'query_results': query_results})
+
 
 class EvalDeleteView(DeleteView):
     model = Evaluation 
